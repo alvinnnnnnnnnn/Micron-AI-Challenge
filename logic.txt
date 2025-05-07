@@ -5,3 +5,7 @@ one Process Step has many Tool IDs, and one Tool ID has many Run IDs
 for each "Run ID" in metrology_df, each row corresponds to 49 measurement points located at consistent locations of the product surface
 
 for each Sensor Name, there are 13 Step IDs
+
+x = filtered_run_df["Time Stamp"].nunique()
+
+each Sensor (A..O) takes a reading and outputs a value x number of times
