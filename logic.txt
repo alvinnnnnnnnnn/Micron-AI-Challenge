@@ -1,0 +1,7 @@
+each "incoming_run_data_i" and "run_data_i" file is one Tool ID
+
+one Process Step has many Tool IDs, and one Tool ID has many Run IDs
+
+for each "Run ID" in metrology_df, each row corresponds to 49 measurement points located at consistent locations of the product surface
+
+for each Sensor Name, there are 13 Step IDs
