@@ -1,6 +1,10 @@
-each "incoming_run_data_i" and "run_data_i" file is one Tool ID
+there is only one kind of process step
 
-one Process Step has many Tool IDs, and one Tool ID has many Run IDs
+19 unique tool id in all 19 files
+
+one run id only has one tool id 
+
+one tool id has many run ids
 
 for each "Run ID" in metrology_df, each row corresponds to 49 measurement points located at consistent locations of the product surface
 
@@ -9,3 +13,12 @@ for each Sensor Name, there are 13 Step IDs
 x = filtered_run_df["Time Stamp"].nunique()
 
 each Sensor (A..O) takes a reading and outputs a value x number of times
+
+each step is at a different time 
+
+for each step, there are values for every sensor 
+
+different steps take diff amount of time 
+
+for one time frame, eg 2024-01-01 00:00:00 to 2024-01-01 00:12:35, there are 18 different tools working
+each of the 18 tools only have one run 
