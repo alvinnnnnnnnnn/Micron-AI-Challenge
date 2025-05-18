@@ -22,3 +22,5 @@ different steps take diff amount of time
 
 for one time frame, eg 2024-01-01 00:00:00 to 2024-01-01 00:12:35, there are 18 different tools working
 each of the 18 tools only have one run 
+
+on every wafer, only 49 measurements are being taken
