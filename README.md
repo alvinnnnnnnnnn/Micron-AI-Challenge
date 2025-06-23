@@ -41,16 +41,18 @@ All models were trained using the complete set of features. Model performance wa
 | Extra Trees Regression  | 0.0449 | 0.9339    |
 | Multi-Layer Perceptron  | 4.6550 | -709.2075 |
 
-The Extra Trees Regression model demonstrated significantly superior performance compared to the other models. An optimal RMSE score is as close to 0 as possible, while an optimal \( R^2 \) score is as close to 1 as possible.
+The Extra Trees Regression model demonstrated significantly superior performance compared to the other models. An optimal RMSE score is as close to 0 as possible, while an optimal R² score is as close to 1 as possible.
 
-To avoid overfitting, we narrowed down the
-features for training and tuned the hyperparameters.
+## Feature Selection
 
-For feature selection, we plotted the feature importance table using the Extra Trees Regressor model and selected the top-k features, which were then sent for model training, and the results were evaluated. Since the X, Y and Consumable Life features are crucial, they will be included as features for training. An example of the feature importance is shown below.
+To mitigate overfitting, feature selection was performed and model hyperparameters were tuned.
+
+Feature importance was assessed using the Extra Trees Regressor model. The top-k features were selected based on their importance scores and used for model training and evaluation. The X, Y, and Consumable Life features were always included due to their critical relevance. An example of the feature importance ranking is shown below:
 
 ![feature importance table](https://github.com/alvinnnnnnnnnn/Micron-AI-Challenge/blob/main/plots/feature_importance_extra_trees-20.png)
 
-We tested on 4 different k-values, and their respective results are shown below.
+Experiments were conducted with four different k-values, and the corresponding results are summarized below:
+
 | k-value | RMSE   | R²     | Training Time |
 |:-------:|:------:|:------:|:-------------:|
 | 20      | 0.0529 | 0.8953 | 1m 9s         |
@@ -59,16 +61,17 @@ We tested on 4 different k-values, and their respective results are shown below.
 | 70      | 0.0416 | 0.9396 | 3m 13s        |
 | all     | 0.0449 | 0.9339 | 34m 27s       |
 
-To balance between computational resources required to train the model and model performance, we chose to use 45 features. 
+To balance computational efficiency and model performance, 45 features were selected for the final model.
 
 ## Model Optimisation 
-We utilised Optuna Tuning to obtain the set of hyperparameters in order to obtain the best performance for our model. We managed to improve our model’s performance in both evaluation metrics.
+Optuna was utilized for hyperparameter tuning to further enhance model performance. The tuned model demonstrated improvements in both evaluation metrics, as shown below:
+
 | Model    | RMSE   | R²     |
 |:--------:|:------:|:------:|
 | Tuned    | 0.0477 | 0.9255 |
-| Un-tuned | 0.0489 | 0.9217 |
+| Untuned  | 0.0489 | 0.9217 |
 
-Plotting an error distribution graph for both the untuned and tuned models, we can see that a higher frequency of data has its prediction error very close to 0 for the tuned model as compared to the untuned one. This indicates that the tuned model has a larger proportion of its predictions having very small errors, highlighting the improved performance of the tuned model over the untuned version.
+An error distribution plot comparing the untuned and tuned models indicates that the tuned model produces a higher frequency of predictions with errors close to zero. This demonstrates that hyperparameter optimization led to a greater proportion of highly accurate predictions, further improving overall model performance.
 
 ![Error Distribution Chart Tuned](https://github.com/alvinnnnnnnnnn/Micron-AI-Challenge/blob/main/plots/error_distribution_Extra%20Trees%20Regressor%20Tuned-46.png)
 
